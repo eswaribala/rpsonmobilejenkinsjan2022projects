@@ -6,12 +6,10 @@ pipeline {
     }
     stages {
         stage('Build') {
-            environment {
-                PROJECT_DIR = ./cucumberdemo"
-            }
+            
             steps {
                 echo 'maven clean'
-                bat ' mvn -f %PROJECT_DIR%\\pom.xml clean install'  
+                bat ' mvn -f ./cucumberdemo clean install'  
             }
         }
     }
