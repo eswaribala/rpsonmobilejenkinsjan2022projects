@@ -118,6 +118,7 @@
                         
                     </suiteXmlFiles>
                 </configuration> 
+                
 		            <!--  <configuration>
 		                <includes>
 		                <include>**/*Test.java</include> 
