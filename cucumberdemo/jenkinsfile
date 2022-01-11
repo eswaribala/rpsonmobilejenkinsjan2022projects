@@ -1,13 +1,13 @@
 pipeline {
     agent any
     tools {
-        maven 'MAVEN_3.6.3'
-        jdk 'JDK_1.8.0_251'
+        maven 'maven'
+        jdk 'java8'
     }
     stages {
         stage('Build') {
             environment {
-                PROJECT_DIR = "D:/git/repository/amexseleniumrepo/cucumberdemo"
+                PROJECT_DIR = ./cucumberdemo"
             }
             steps {
                 echo 'maven clean'
