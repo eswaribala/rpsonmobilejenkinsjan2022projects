@@ -9,7 +9,7 @@ pipeline {
             
             steps {
                 echo 'maven clean'
-                bat ' mvn -f ./cucumberdemo clean install'  
+                bat ' mvn -f ./cucumberdemo clean test'  
             }
         }
     }
