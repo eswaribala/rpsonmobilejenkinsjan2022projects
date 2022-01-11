@@ -118,12 +118,12 @@
                         
                     </suiteXmlFiles>
                 </configuration> -->
-		             <configuration>
+		             <!-- <configuration>
 		                <includes>
 		                    <include>**/${testGroup}/*Test.java</include> 
 		                     <include>com/amex/cucumberdemo/*Test.java</include>
 		                </includes>
-		            </configuration> 
+		            </configuration>  -->
 		        </plugin>
   
         </plugins>
