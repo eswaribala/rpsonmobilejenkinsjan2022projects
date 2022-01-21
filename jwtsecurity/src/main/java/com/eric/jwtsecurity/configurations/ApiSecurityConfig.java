@@ -16,6 +16,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
 
 import com.eric.jwtsecurity.filters.JwtAuthenticationFilter;
 import com.eric.jwtsecurity.services.UserAuthService;
@@ -37,6 +38,7 @@ public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/signin", "/signup");
+		
 	}
 
 	@Autowired
@@ -46,6 +48,8 @@ public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		//concurrent session
+		// http.sessionManagement().maximumSessions(1);
 		http.csrf().disable().authorizeRequests().antMatchers("/signin", "/signup").permitAll().anyRequest()
 				.authenticated().and().exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and()
 				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -69,5 +73,11 @@ public class ApiSecurityConfig extends WebSecurityConfigurerAdapter {
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-
+/*
+	@Bean
+	public HttpSessionEventPublisher httpSessionEventPublisher() 
+	{
+	    return new HttpSessionEventPublisher();
+	}
+	*/
 }

@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class VaultConfiguration {
 
 	private String key;
+	
 
 	public String getKey() {
 		return key;
